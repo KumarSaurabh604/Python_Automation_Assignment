@@ -41,7 +41,7 @@ Ensure you have a compatible version of **ChromeDriver** installed and accessibl
 
 3. **Install the required dependencies**:
     ```bash
-    pip install -r requirements.txt
+    pip install pytest==8.3.2 pluggy==1.5.0 allure-pytest==2.13.5 pytest-bdd==7.2.0 pytest-html==4.1.1 pytest-html-reporter==0.2.9 pytest-metadata==3.1.1
     ```
 
 ## Running the Tests
