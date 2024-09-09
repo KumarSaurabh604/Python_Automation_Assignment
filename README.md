@@ -50,62 +50,22 @@ Ensure you have a compatible version of **ChromeDriver** installed and accessibl
 
 1. **Run all UI tests**:
     ```bash
-    pytest tests/ui --alluredir=reports/allure-results
+    pytest  bddpytest\stepDef\stepDefinition.py
     ```
 
-2. **Run a specific UI test**:
+2. **Run UI tests in headless mode**:
     ```bash
-    pytest tests/ui/test_login.py --alluredir=reports/allure-results
-    ```
-
-3. **Run UI tests in headless mode**:
-    ```bash
-    pytest tests/ui --headless --alluredir=reports/allure-results
+    pytest uibddpytest/stepDef/stepDefinition.py --headless
     ```
 
 ### Running API Tests
 
 1. **Run all API tests**:
     ```bash
-    pytest tests/api --alluredir=reports/allure-results
+    pytest  trello_api_framework/tests
     ```
 
 2. **Run a specific API test**:
     ```bash
-    pytest tests/api/test_create_card.py --alluredir=reports/allure-results
+    pytest  trello_api_framework/tests/test_update_card.py
     ```
-
-## Generating Reports
-
-### Allure Reports
-
-To generate **Allure** reports after running the tests:
-
-1. **Install Allure** (if not already installed):
-    - For macOS:
-      ```bash
-      brew install allure
-      ```
-    - For Windows, download and install from the [Allure official website](https://docs.qameta.io/allure/).
-
-2. **Generate the report**:
-    ```bash
-    allure serve reports/allure-results
-    ```
-
-### HTML Reports (Optional)
-
-If you prefer HTML reports, you can generate them as follows:
-
-1. Add the `pytest-html` plugin in your `requirements.txt`:
-    ```
-    pytest-html
-    ```
-
-2. **Run the tests with HTML report generation**:
-    ```bash
-    pytest --html=reports/test_report.html
-    ```
-
-3. View the report in your browser by opening the `test_report.html` file.
-
