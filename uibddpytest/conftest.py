@@ -14,7 +14,7 @@ def pytest_runtest_makereport(item, call):
 
     if report.when in ['call', 'setup'] and (report.failed or report.skipped):
         if not hasattr(report, 'wasxfail') or report.failed:
-            screenshot_dir = Path("reports/htmlReport/screenshot")  # Use a path relative to the report
+            screenshot_dir = Path("uibddpytest/reports/htmlReport/screenshot")  # Use a path relative to the report
             screenshot_path = screenshot_dir / (report.nodeid.replace("::", "_") + ".png")
             browser = item.funcargs.get('browser')
             if browser:
@@ -29,7 +29,7 @@ def pytest_runtest_makereport(item, call):
 
 @pytest.hookimpl(tryfirst=True)
 def pytest_configure(config):
-    report_dir = Path('reports/htmlReport')
+    report_dir = Path('uibddpytest/reports/htmlReport')
     report_dir.mkdir(parents=True, exist_ok=True)
     config.option.htmlpath = report_dir / "report.html"
     config.option.self_contained_html = True
