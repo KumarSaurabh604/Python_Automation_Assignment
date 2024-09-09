@@ -9,8 +9,6 @@ This repository contains both **UI** and **API** automated tests using `pytest`.
   - [Running UI Tests](#running-ui-tests)
   - [Running API Tests](#running-api-tests)
 - [Generating Reports](#generating-reports)
-- [Test Structure](#test-structure)
-- [Contributing](#contributing)
 
 ## Prerequisites
 
