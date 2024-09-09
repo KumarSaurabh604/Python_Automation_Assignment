@@ -1,14 +1,8 @@
 name: Run Pytest BDD Tests
 
 on:
-  # Trigger the workflow on pushes to the main branch, or pull requests targeting the main branch or manually run the testcases
+  # manually run the testcases
   workflow_dispatch:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
   test:
