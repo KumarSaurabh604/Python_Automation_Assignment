@@ -49,12 +49,15 @@ def pytest_html_report_title(report):
 
 # Set up the WebDriver session
 @pytest.fixture(scope="session", autouse=True)
-def browser():
+def browser(request):
+    headless = request.config.getoption("--headless")
     options = Options()
     options.add_argument("--disable-infobars")
     options.add_argument("--disable-popup-blocking")
-    # options.add_argument("--headless")  # Run Chrome in headless mode
-    options.add_argument("--disable-gpu")  # Disable GPU rendering (not required but good for stability)
+    if headless:
+        options.add_argument("--headless")  # Run Chrome in headless mode
+        options.add_argument("--disable-gpu")  # Disable GPU rendering (not required but good for stability)
+
     options.add_argument("--window-size=1920x1080")  # Set a consistent window size
 
     driver = webdriver.Chrome(options=options)
@@ -64,3 +67,7 @@ def browser():
     yield driver
 
     driver.quit()
+
+
+def pytest_addoption(parser):
+    parser.addoption("--headless", action="store_true", help="Run browser in headless mode")
