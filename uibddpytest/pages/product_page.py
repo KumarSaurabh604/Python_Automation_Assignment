@@ -10,7 +10,7 @@ class ProductPage:
     def __init__(self, driver):
         try:
             self.driver = driver
-            self.driver.execute_script("document.body.style.zoom='85%'")
+            self.driver.execute_script("document.body.style.zoom='75%'")
         except WebDriverException as e:
             print(f"Error setting zoom level: {e}")
             raise
